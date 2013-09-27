@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=854px, user-scalable=no"/>
+    <link rel="shortcut icon" href="ico/favicon.png">
+    <title>Wii U Home Network File Browser</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="BrowserCtrl">
+    <ol class="breadcrumb">
+      <li ng-repeat="crumb in breadcrumbs" ng-class="{active:$last}">
+        <a href="#">{{crumb}}</a>
+      </li>
+        
+    </ol>
+
+    <div class="container">
+      <div class="row" ng-repeat="filegroup in files">
+        <div class="col-xs-3" ng-repeat="file in filegroup">
+          <a class="tile" ng-click="loadFromPath(file.href)" href="#">
+            <label>{{file.name}}</label>
+          </a>
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script-->
+  </body>
+</html>
